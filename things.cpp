@@ -56,23 +56,14 @@ int main() {
 	cout << "things record            v.1.20\n";
 	cout << "Welcome to your used!\n\n";
 
-	//FILE* file = NULL;
-	//if (fopen_s(&file, "record.dat", "rb") != 0 || !file) {
-	//	return 1;
-	//}
-	//fread(&a, sizeof(things), 1, file);
-	//fclose(file);
+	FILE* file = fopen("record.dat", "rb");
+	fread(a, sizeof(a), 1, file);
+	fclose(file);
 
 	while (true)
 	{
 
-		if (start == true)
-		{
-			showthings(tn);
-		}
-		else {
-			start = true;
-		}
+		showthings(tn);
 
 		MainMenu();
 
@@ -216,14 +207,12 @@ int main() {
 		{
 			cout << "record will delete.\n\n"
 				<< "Thanks for your used.\n";
-			/*FILE* file = nullptr;
-			if (fopen_s(&file, "record.dat", "wb") != 0 || !file) {
-				return 1;
-			}
-			fwrite(&a, sizeof(things), 1, file);
-			fclose(file);*/
+			
+			FILE* file = fopen("record.dat", "wb");
+			fwrite(a, sizeof(a), 1, file);
+			fclose(file);
+
 			return 0;
 		}
 	}
 }
-//a
