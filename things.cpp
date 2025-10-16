@@ -56,7 +56,7 @@ int main() {
 	cout << "things record            v.1.20\n";
 	cout << "Welcome to your used!\n\n";
 
-	FILE* file = fopen("record.txt", "rb");
+	FILE* file = fopen("record.txt", "r");
 	fread(a, sizeof(a), 1, file);
 	fclose(file);
 
@@ -208,7 +208,7 @@ int main() {
 			cout << "record will delete.\n\n"
 				<< "Thanks for your used.\n";
 			
-			FILE* file = fopen("record.txt", "wb");
+			FILE* file = fopen("record.txt", "w");
 			fwrite(a, sizeof(a), 1, file);
 			fclose(file);
 
