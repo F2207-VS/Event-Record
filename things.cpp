@@ -56,9 +56,15 @@ int main() {
 	cout << "things record            v.1.20\n";
 	cout << "Welcome to your used!\n\n";
 
-	FILE* file = fopen("record.txt", "r");
-	fread(a, sizeof(a), 1, file);
-	fclose(file);
+	FILE* file = nullptr;
+	if (fopen_s(&file, "record.dat", "rb") != 0) {
+		file = nullptr;
+	}
+	else {
+		fread((void*)a, sizeof(a[0]), 201, file);
+		fread(&tn, sizeof(tn), 1, file);
+		fclose(file);
+	}
 
 	while (true)
 	{
@@ -208,9 +214,15 @@ int main() {
 			cout << "record will delete.\n\n"
 				<< "Thanks for your used.\n";
 			
-			FILE* file = fopen("record.txt", "w");
-			fwrite(a, sizeof(a), 1, file);
-			fclose(file);
+			FILE* file = nullptr;
+			fopen_s(&file, "record.dat", "wb");
+			if (file != nullptr) {
+				fwrite(a, sizeof(a[0]), 201, file);
+				fwrite(&tn, sizeof(tn), 1, file);
+				fclose(file);
+			} else {
+				cout << "file error\n";
+			}
 
 			return 0;
 		}
