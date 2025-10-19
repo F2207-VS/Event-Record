@@ -63,7 +63,7 @@ int main() {
 		return -1;
 	}
 	fread(&tn, sizeof(tn), 1, file);
-	fread(a, sizeof(a), 201, file);
+	fread(a, sizeof(a[0]), 201, file);
 	fclose(file);
 
 	while (true)
@@ -212,6 +212,7 @@ int main() {
 		if (input == 0)
 		{
 			cout<< "Thanks for your used.\n";
+			Sleep(2000);
 			
 			file = fopen("record.dat", "wb");
 			if (file == NULL) {
