@@ -1,24 +1,29 @@
 #include <iostream>
 #include <Windows.h>
-#include <cstring>
 #include <cstdio>
+#include <vector>
+#include <fstream>
+#include <cstdint>
+#include <string>
 
 using namespace std;
 
-struct things
-{
-	int tNumber;
-	string tThings;
-	bool tstate;
-}a[201]{};
+struct Thing {
+    int tNumber;
+    string tThings;
+    bool tstate;
+}a[201];
+
+//static const size_t MAX_ITEMS = 201;
+//static const char* DATA_FILE = "record.dat";
 
 static void MainMenu()
 {
-	cout << "1.Add things\n"
-		<< "2.Delete things\n"
-		<< "3.Change state\n"
-		<< "9.Show this menu \n"
-		<< "0.Exit\n";
+    cout << "1.Add things\n"
+         << "2.Delete things\n"
+         << "3.Change state\n"
+         << "9.Show this menu \n"
+         << "0.Exit\n";
 }
 
 static void kMenu()
