@@ -14,9 +14,6 @@ struct Thing {
     bool tstate;
 }a[201];
 
-//static const size_t MAX_ITEMS = 201;
-//static const char* DATA_FILE = "record.dat";
-
 static void MainMenu()
 {
     cout << "1.Add things\n"
